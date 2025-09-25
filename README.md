@@ -15,9 +15,9 @@ The scan identifies vulnerabilities, misconfigurations, and informational findin
 
 ## Target Hosts Scanned
 
-1. **Host A** – 14 vulnerabilities (2 Medium, 12 Informational)
-2. **Host B** – 84 vulnerabilities (5 Critical/High, 3 Medium, 75 Informational)
-3. **Host C** – 5 vulnerabilities (all Informational)
+1. **Host 10.0.0.1** – 14 vulnerabilities (2 Medium, 12 Informational)
+2. **Host 10.0.0.2** – 84 vulnerabilities (5 Critical/High, 3 Medium, 75 Informational)
+3. **Host 10.0.0.3** – 5 vulnerabilities (all Informational)
 
 ---
 
@@ -31,30 +31,30 @@ The scan identifies vulnerabilities, misconfigurations, and informational findin
 
 ---
 
-## Key Findings
+## Key Findings & Mitigation Tips
 
-* **Host A:**
+### 🔹 Host 10.0.0.1
 
-  * IP Forwarding Enabled (Medium risk)
-  * DNS Server Cache Snooping (Medium risk)
-  * Multiple OS and network info disclosures
+* **IP Forwarding Enabled (Medium):** Disable IP forwarding unless explicitly required for routing.
+* **DNS Cache Snooping (Medium):** Restrict DNS server access and configure query filtering.
+* **Info Leaks:** Limit unnecessary network services and disable unused protocols.
 
-* **Host B:**
+### 🔹 Host 10.0.0.2
 
-  * Multiple **Node.js vulnerabilities** (Critical & High severity) across versions 18.x, 20.x, 21.x, 22.x, and 23.x
-  * **Ruby RACK DoS vulnerability**
-  * **SSL Certificate issues** (untrusted certificate)
-  * Numerous informational findings (software detections, service enumeration, system configs)
+* **Node.js Vulnerabilities (Critical/High):** Upgrade Node.js to the latest patched release.
+* **Ruby RACK DoS (Medium):** Update Rack to version ≥ 2.2.14 / 3.x patched releases.
+* **SSL Certificate Issues (Medium):** Replace untrusted/expired certificates with CA-signed ones.
+* **Service/Software Enumeration:** Apply least privilege, firewall restrictions, and disable unneeded services.
 
-* **Host C:**
+### 🔹 Host 10.0.0.3
 
-  * Only informational findings (VMware detection, traceroute, NIC info)
+* **Informational Findings Only:** No immediate risk; monitor system regularly and keep software updated.
 
 ---
 
 ## References
 
-Each finding in the report contains a direct link to the **Tenable Nessus Plugin ID** for further details and remediation guidance.
+Each finding in the report includes a direct link to the **Tenable Nessus Plugin ID** for remediation details.
 
 Example:
 
@@ -66,10 +66,17 @@ Example:
 ## How to Use This Report
 
 * Open the PDF file (`vuln scan_f4asqq (1).pdf`) to review all findings.
-* Focus remediation efforts first on **Critical and High vulnerabilities**, especially Node.js and SSL-related issues.
-* Use the provided Nessus plugin reference links for mitigation steps.
-* Apply security patches and hardening measures where necessary.
+* Prioritize **Critical and High severity issues** first (Node.js, SSL, Ruby RACK).
+* Apply OS and application patches promptly.
+* Disable or restrict unnecessary services to reduce attack surface.
+* Use regular scanning and patch management to maintain security posture.
 
 ---
+
+✅ This README provides a **concise summary with mitigation guidance** alongside the detailed PDF report.
+
+---
+
+
 
 
